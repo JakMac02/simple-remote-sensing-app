@@ -2,9 +2,11 @@
 A simple application for calculating NDVI utilizing Python nad Rasterio library
 
 Created rasters:
+
 NDSI:
 ![image](https://github.com/JakMac02/simple-remote-sensing-app/assets/126525650/5b328eee-6a92-486d-9f1d-1fac5fda1efe)
 ![image](https://github.com/JakMac02/simple-remote-sensing-app/assets/126525650/cd69b085-7e50-4ec9-b58e-285043296ccb)
+
 NDVI:
 ![image](https://github.com/JakMac02/simple-remote-sensing-app/assets/126525650/8f7e1898-6131-463a-a8ce-465a70b18b74)
 
