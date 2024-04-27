@@ -4,7 +4,7 @@ import earthpy.plot as ep
 import matplotlib.pyplot as plt
 
 """
-It's a code from a turorial: https://zectre.github.io/geospatialpython/2021/08/08/NDVI-With-Rasterio.html
+I've used code from a turorial: https://zectre.github.io/geospatialpython/2021/08/08/NDVI-With-Rasterio.html
 
 Libraries copyrights:
     Rasterio github: https://github.com/rasterio/rasterio?tab=readme-ov-file
@@ -28,6 +28,7 @@ Libraries copyrights:
         month 11
         day 13
 """
+
 
 def calc_ndvi(band4, band5):
     np.seterr(divide='ignore', invalid='ignore')
@@ -59,10 +60,10 @@ def save_to_geotiff(raster, path, b4data):
 
 
 def plot_raster(path, title, cmap):
-    ndviplot = r.open(r'results\ndvi.tiff').read(1)
+    ndviplot = r.open(path).read(1)
     ep.plot_bands(ndviplot,
-                  cmap='RdYlGn',
-                  title="NDVI")
+                  cmap=cmap,
+                  title=title)
     plt.show()
 
 
