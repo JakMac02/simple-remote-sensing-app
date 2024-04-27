@@ -1,5 +1,5 @@
 # simple-remote-sensing-app
-A simple application for calculating NDVI utilizing Python nad Rasterio library
+A simple application for calculating remote sensing indices utilizing Python nad Rasterio library
 
 Created rasters:
 
