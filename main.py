@@ -31,6 +31,10 @@ Libraries copyrights:
 
 
 def calc_ndvi(band4, band5):
+    """
+    :param band4 is red band in Landsat 8-9:
+    :param band5 is near infrared in Landsat 8-9:
+    """
     np.seterr(divide='ignore', invalid='ignore')
     ob4 = r.open(band4).read(1)
     ob5 = r.open(band5).read(1)
@@ -43,6 +47,21 @@ def calc_ndvi(band4, band5):
         (nir-red)/(nir+red))
 
     return ndvi
+
+
+def calc_ndsi(band3, band6):
+    np.seterr(divide='ignore', invalid='ignore')
+    ob3 = r.open(band3).read(1)
+    ob6 = r.open(band6).read(1)
+    green = ob3.astype('float64')
+    swir1 = ob6.astype('float64')
+
+    ndsi = np.where(
+        (green + swir1) == 0.,  # It will return -1 for No Data value
+        -1,
+        (green - swir1) / (green + swir1))
+
+    return ndsi
 
 
 def save_to_geotiff(raster, path, b4data):
@@ -71,5 +90,19 @@ if __name__ == '__main__':
     band4 = 'data\LC08_L1TP_188024_20240110_20240122_02_T1_B4.TIF'
     band5 = 'data\LC08_L1TP_188024_20240110_20240122_02_T1_B5.TIF'
     ndvi = calc_ndvi(band4, band5)
-    save_to_geotiff(ndvi, r'results\ndvi.tiff', 'data\LC08_L1TP_188024_20240110_20240122_02_T1_B4.TIF')
+    save_to_geotiff(ndvi, r'results\ndvi.tiff', band4)
     plot_raster(r'results\ndvi.tiff', "NDVI", 'RdYlGn')
+
+    band3 = 'data\LC09_L1TP_187026_20240315_20240315_02_T1_B3.TIF'
+    band6 = 'data\LC09_L1TP_187026_20240315_20240315_02_T1_B6.TIF'
+    ndsi = calc_ndsi(band3, band6)
+    save_to_geotiff(ndsi, r'results\ndsi_carpathian_mountains.tiff', band3)
+    plot_raster(r'results\ndsi_carpathian_mountains.tiff', "NDSI", 'RdBu')
+
+    band3 = 'data\LC09_L1TP_193028_20240325_20240325_02_T1_B3.TIF'
+    band6 = 'data\LC09_L1TP_193028_20240325_20240325_02_T1_B6.TIF'
+    ndsi = calc_ndsi(band3, band6)
+    save_to_geotiff(ndsi, r'results\ndsi_alpes.tiff', band3)
+    plot_raster(r'results\ndsi_alpes.tiff', "NDSI", 'RdBu')
+
+
