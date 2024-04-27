@@ -12,11 +12,14 @@ NDVI:
 
 
 Libraries copyrights:
-    Rasterio github: https://github.com/rasterio/rasterio?tab=readme-ov-file
+
+    Rasterio 
+        github: https://github.com/rasterio/rasterio?tab=readme-ov-file
         Copyright (c) 2013-2021, Mapbox
         All rights reserved.
     
-    EarthPy github: https://github.com/earthlab/earthpy?tab=readme-ov-file
+    EarthPy 
+        github: https://github.com/earthlab/earthpy?tab=readme-ov-file
         article - Wasser2019EarthPy
         journal Journal of Open Source Software
         doi 10.21105/joss.01886
