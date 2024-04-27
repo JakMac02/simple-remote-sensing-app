@@ -1,13 +1,7 @@
-import os
-import earthpy as et
-import earthpy.spatial as es
 import rasterio as r
 import numpy as np
-from rasterio.plot import show
 import earthpy.plot as ep
 import matplotlib.pyplot as plt
-from matplotlib.colors import ListedColormap
-import matplotlib.colors as colors
 
 """
 It's a code from a turorial: https://zectre.github.io/geospatialpython/2021/08/08/NDVI-With-Rasterio.html
